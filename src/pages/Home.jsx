@@ -32,7 +32,6 @@ import { SearchContext } from '../App';
   React.useEffect(() => {
     setIsLoading(true);
 
-    
     const sortBy = sort.sortProperty.replace('-', '')
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc'
     const category = categoryId > 0 ? `category=${categoryId}` : ''
