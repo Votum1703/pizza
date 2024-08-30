@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -64,10 +64,18 @@ import { fetchPizzas } from '../redux/slices/pizzaSlice';
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
+
+
+
+  const pizzas = items.map((obj) => (
+  <Link key={obj.id} to ={`/pizza/${obj.id}`}>
+    <PizzaBlock  {...obj} />
+    </Link>))
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
   
+
+
   return (
     <div className='container'>
          <div className="content__top">
