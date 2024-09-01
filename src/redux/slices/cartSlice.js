@@ -42,15 +42,8 @@ const cartSlice = createSlice({
   },
 });
 
-// смотри в home
-//   useEffect(()=>{
-//       fetchPizzas()
-//   },[])
-// в слайс
-//     [fetchPizzas.fulfilled]: (state, action) => {
-//       state.items=action.payload
-//     },
-// не уверен что правильно но работает
+export const selectCart = (state) => state.cart
+export const selectCartItemById = (id) => (state) => state.cart.items.find((obj) => obj.id === id)
 
 export const { addItem, removeItem, minusItem, clearItems } = cartSlice.actions;
 
