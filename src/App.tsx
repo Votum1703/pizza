@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
@@ -11,10 +10,10 @@ function App() {
   return (
     <Routes>
     <Route path='/' element={<MainLayout/>}>
-    <Route path="" element={<Home />} exact />
-    <Route path="/cart" element={<Cart />} exact />
-    <Route path="/pizza/:id" element={<FullPizza />} exact />
-    <Route path="*" element={<NotFound />} exact />
+    <Route path="" element={<Home />} />
+    <Route path="/cart" element={<Cart />}  />
+    <Route path="/pizza/:id" element={<FullPizza />}  />
+    <Route path="*" element={<NotFound />}  />
      </Route>
     </Routes>
   );
