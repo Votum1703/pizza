@@ -10,7 +10,7 @@ import Pagination from '../components/Pagination';
 import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
 
-  const Home = () => {
+  const Home: React.FC = () => {
   const dispatch = useDispatch( )
   const isSearch = React.useRef(false);
   const {items, status} = useSelector(selectPizzaData)
@@ -18,13 +18,12 @@ import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
 
 
-  const onChangeCategory = (id) => {
-  console.log(id);
-  dispatch(setCategoryId(id))
+  const onChangeCategory = (idx: number) => {
+  dispatch(setCategoryId(idx))
   }
  
-  const onChangePage = number => {
-    dispatch(setCurrentPage(number))
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page))
   }
 
   const getPizzas = async () => {
@@ -39,7 +38,9 @@ import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
 
 
-    dispatch(fetchPizzas({
+    dispatch(
+      //@ts-ignore
+      fetchPizzas({
       sortBy,
       order,
       category,
@@ -65,7 +66,7 @@ import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
 
 
-  const pizzas = items.map((obj) => (
+  const pizzas = items.map((obj: any) => (
   <Link key={obj.id} to ={`/pizza/${obj.id}`}>
     <PizzaBlock  {...obj} />
     </Link>))

@@ -17,6 +17,5 @@
       "jsx": "react-jsx"
     },
     "include": [
-      "src",
-    ]
+      "src", "src/@types"]
 }
