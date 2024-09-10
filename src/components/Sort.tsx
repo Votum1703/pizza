@@ -1,20 +1,20 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSort, setSort } from '../redux/slices/filterSlice'
+import { selectSort, setSort, sortPropertyEnum } from '../redux/slices/filterSlice'
 
-type sortItem = {
+type SortItem = {
   name: string,
-  sortProperty: string
+  sortProperty: sortPropertyEnum
 }
 
-const sortList: sortItem[] = [
-  {name : 'популярности (DESC)', sortProperty: 'rating'},
-  {name : 'популярности (ASC)', sortProperty: '-rating'}, 
-  {name : 'цене (DESC)', sortProperty: 'price'}, 
-  {name : 'цене (ASC)', sortProperty: '-price'}, 
-  {name : 'алфавиту (DESC)', sortProperty: 'title'},
-  {name : 'алфавиту (ASC)', sortProperty: '-title'}
-]
+export const sortList: SortItem[] = [
+  { name: 'популярности (DESC)', sortProperty: sortPropertyEnum.RATING_DESC },
+  { name: 'популярности (ASC)', sortProperty: sortPropertyEnum.RATING_ASC },
+  { name: 'цене (DESC)', sortProperty: sortPropertyEnum.PRICE_DESC },
+  { name: 'цене (ASC)', sortProperty: sortPropertyEnum.PRICE_ASC },
+  { name: 'алфавиту (DESC)', sortProperty: sortPropertyEnum.TITLE_DESC },
+  { name: 'алфавиту (ASC)', sortProperty: sortPropertyEnum.TITLE_ASC },
+];
 
 function Sort() {
 const dispatch = useDispatch()
@@ -23,10 +23,10 @@ const sortRef = React.useRef<HTMLDivElement>(null)
 
   const [open, setOpen] = React.useState(false)
 
-  const onClickListItem = (obj: sortItem) =>{
-    dispatch(setSort(obj))
-    setOpen(false)     
-  }
+  const onClickListItem = (obj: SortItem) => {
+    dispatch(setSort(obj));
+    setOpen(false);
+  };
 
 React.useEffect(() => {
   const handleClickOutside = (event: MouseEvent) => {
