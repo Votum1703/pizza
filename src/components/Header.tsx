@@ -16,10 +16,10 @@ function Header() {
       <div className="container">
         <Link to='/'>
         <div className="header__logo">
-          <img width="38" src="http://localhost:3000/img/pizza-logo.svg" alt="Pizza logo" />
+          <img width="38" src="https://raw.githubusercontent.com/Votum1703/pizza/f629130760311b75e951719be8bde4b58809a925/img/pizza-logo.svg" alt="Pizza logo" />
           <div>
             <h1>Italian Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+            <p>Cамая вкусная пицца во вселенной</p>
           </div>
         </div>
         </Link>
